@@ -32,6 +32,14 @@ export function parseBytes(str: string): number {
 	return parseFloat(match[1]) * UNITS[match[2]];
 }
 
+export function stringifyProps(properties: Record<string, string>): string[] {
+	return Object.entries(properties).reduce((acc, [key, value]) => {
+		acc.push(`${key}=${value.replace(/ /g, '\\ ')}`);
+
+		return acc;
+	}, [] as string[]);
+}
+
 export function getOutput(args: string[]): Promise<any> {
 	return new Promise((resolve, reject) => {
 		const process = spawn('pactl', args, {

@@ -1,13 +1,5 @@
 import {Format} from './list';
-import {getOutput} from './util';
-
-function stringifyProps(properties: Record<string, string>): string[] {
-	return Object.entries(properties).reduce((acc, [key, value]) => {
-		acc.push(`${key}=${value.replace(/ /g, '\\ ')}`);
-
-		return acc;
-	}, [] as string[]);
-}
+import {getOutput, stringifyProps} from './util';
 
 // FIXME: these return trues are useless
 
