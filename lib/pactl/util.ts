@@ -40,7 +40,7 @@ export function stringifyProps(properties: Record<string, string>): string[] {
 	}, [] as string[]);
 }
 
-export function getOutput(args: string[]): Promise<any> {
+export function getOutput(args: string[]): Promise<string> {
 	return new Promise((resolve, reject) => {
 		const process = spawn('pactl', args, {
 			shell: false,
